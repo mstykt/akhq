@@ -36,9 +36,11 @@ class GroupControllerTest extends AbstractTest {
         ResultPagedList<ConsumerGroup> result;
 
         result = this.retrievePagedList(HttpRequest.GET(BASE_URL), ConsumerGroup.class);
+        System.out.println(result.getResults());
         assertEquals(5, result.getResults().size());
 
         result = this.retrievePagedList(HttpRequest.GET(BASE_URL + "?page=2"), ConsumerGroup.class);
+        System.out.println(result.getResults());
         assertEquals(1, result.getResults().size());
         assertEquals("stream-test-example", result.getResults().get(0).getId());
     }

@@ -28,9 +28,11 @@ class TopicControllerTest extends AbstractTest {
 
         result = this.retrievePagedList(HttpRequest.GET(BASE_URL), Topic.class);
         assertEquals(5, result.getResults().size());
+        System.out.println(result.getResults());
 
         result = this.retrievePagedList(HttpRequest.GET(BASE_URL + "?page=2"), Topic.class);
         assertEquals(KafkaTestCluster.TOPIC_HIDE_INTERNAL_COUNT - 5, result.getResults().size());
+        System.out.println(result.getResults());
         assertEquals("stream-test-example-count-repartition", result.getResults().get(4).getName());
     }
 
